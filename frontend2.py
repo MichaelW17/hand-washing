@@ -1,4 +1,4 @@
-# 01/6/2020: 在front的基础上增加了最后结果的显示：通过则窗口背景变蓝，否则变红
+# 01/06/2020: 在front的基础上增加了最后结果的显示：通过则窗口背景变蓝，否则变红（self.repaint)
 import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -128,7 +128,9 @@ class FrontEnd(QMainWindow):
         self.pbar.setFixedSize(1025, 50)
         self.pbar.setTextVisible(False)
         self.pbar.setStyleSheet("QProgressBar{background-color:#FFFFFF; color: #FFFFFF;"  # 天蓝色背景白色字体
-                                       "border:2px groove gray;border-radius:10px;padding:2px 4px;}")  # 圆角按钮
+                                       "border:2px groove gray;border-radius:10px;padding:2px 4px;}"
+                                "QProgressBar::chunk{background-color: #05B8CC;}")  # 圆角按钮
+        # self.pbar.setStyleSheet("")  # 圆角按钮
         self.timer = QBasicTimer()
 
 

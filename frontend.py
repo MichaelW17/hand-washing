@@ -47,7 +47,7 @@ class Worker(QObject):
                 if self.video_end:  # 视频播放到了最后一帧
                     lil_washer.video_end = 0
                     self.video_end = 0
-                    # time.sleep(3)
+                    self.frame_to_show = np.zeros((1024, 576, 3), dtype=np.uint8)
                     self.clear.emit()
                     print('ended phase 1')
                     break
@@ -218,7 +218,9 @@ class FrontEnd(QWidget):
     def restart(self):  # 当前视频播放完毕，重播一遍
 
         print('ended phase 2')
-        time.sleep(3)
+        self.showFrame()
+        self.repaint()
+        time.sleep(2)
         self.worker.call_todo.emit(self.video_name)
 
 

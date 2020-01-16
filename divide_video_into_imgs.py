@@ -2,9 +2,9 @@
 import numpy as np
 import cv2
 
-video_path_name = 'C:/Users/Minghao/Desktop/gopro-hard/GH010303.MP4'
+video_path_name = 'C:/Users/Minghao/Desktop/soap2/GH010367.MP4'
 video_name = video_path_name.split('/')[-1].split('.')[0]
-output_path = 'C:/Users/Minghao/Desktop/gopro-hard/00/'
+output_path = 'C:/Users/Minghao/Desktop/soap2/0/'
 cap = cv2.VideoCapture(video_path_name)
 ret, frame = cap.read()
 frameID = 0
@@ -22,7 +22,7 @@ while 1:
             break
     else:
         # key_value = cv2.waitKey(0)
-        if skip_frame < 20:
+        if skip_frame < 50:
             print('pass this frame')
             skip_frame += 1
             continue

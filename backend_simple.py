@@ -61,7 +61,7 @@ class Washer:
                 self.video_end = 1
                 self.video_cap.release()
 
-        time.sleep(1/100)
+        time.sleep(1/240)
 
         return self.frame_to_show, self.washing_time, self.video_end
 
